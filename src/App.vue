@@ -1,22 +1,30 @@
 <template>
-  <base-container title="Vuex">
+  <base-container v-if="getIsLoged" title="Vuex">
     <my-counter></my-counter>
     <button @click="inc">add one</button>
     <!-- //ading payload to an action -->
     <button @click="increase({ value: 30 })">add 10</button>
+  </base-container>
+  <base-container>
+    <user-auth></user-auth>
   </base-container>
 </template>
 
 <script>
 import BaseContainer from './components/BaseContainer.vue';
 import MyCounter from './components/MyCounter.vue';
+import UserAuth from './components/UserAuth.vue';
 
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   components: {
     BaseContainer,
-    MyCounter
+    MyCounter,
+    UserAuth
+  },
+  computed: {
+    ...mapGetters(['getIsLoged'])
   },
   methods: {
     // the three dots ... is an instance for merging

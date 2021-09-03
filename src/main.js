@@ -7,7 +7,8 @@ const store = createStore({
   // state is equal to data
   state() {
     return {
-      counter: 0
+      counter: 0,
+      isLoged: false
     };
   },
   //   mutations are equal to methods
@@ -19,6 +20,12 @@ const store = createStore({
     // payload is and argument passes data to the funciton
     increase(state, payload) {
       state.counter = state.counter + payload.value;
+    },
+    logIn(state) {
+      state.isLoged = true;
+    },
+    logOut(state) {
+      state.isLoged = false;
     }
   },
   //   getters are similar to computed
@@ -38,6 +45,9 @@ const store = createStore({
       } else {
         return finalCounter;
       }
+    },
+    getIsLoged(state) {
+      return state.isLoged;
     }
   },
   //   mutations is responsible to effect the state, it is not allowed to have an asynchronous
@@ -64,6 +74,12 @@ const store = createStore({
       setTimeout(function() {
         context.commit('increase', payload);
       }, 2000);
+    },
+    logIn(context) {
+      context.commit('logIn');
+    },
+    logOut(context) {
+      context.commit('logOut');
     }
   }
 });
