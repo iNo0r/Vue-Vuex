@@ -15,6 +15,10 @@ const store = createStore({
     // state down here is the current state
     increment(state) {
       state.counter = state.counter + 1;
+    },
+    // payload is and argument passes data to the funciton
+    increase(state, payload) {
+      state.counter = state.counter + payload.value;
     }
   }
 });

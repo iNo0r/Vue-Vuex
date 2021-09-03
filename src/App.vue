@@ -2,6 +2,7 @@
   <base-container title="Vuex">
     <my-counter></my-counter>
     <button @click="addOne">add one</button>
+    <button @click="addMore">add 10</button>
   </base-container>
 </template>
 
@@ -19,6 +20,14 @@ export default {
       // this.$store.state.counter++;
       // commit why call a mutation's method named 'increment'
       this.$store.commit('increment');
+    },
+    addMore() {
+      // this.$store.commit('increase',{value:10})
+      // an alternative way of commiting mutation, both work fine
+      this.$store.commit({
+        type: 'increase',
+        value: 10
+      });
     }
   }
 };
