@@ -1,7 +1,7 @@
 <template>
   <base-container title="Vuex">
     <my-counter></my-counter>
-    <button @click="increment">add one</button>
+    <button @click="inc">add one</button>
     <!-- //ading payload to an action -->
     <button @click="increase({ value: 30 })">add 10</button>
   </base-container>
@@ -21,7 +21,12 @@ export default {
   methods: {
     // the three dots ... is an instance for merging
     // now we can dispatch actions like we are calling a method's function
-    ...mapActions(['increment', 'increase']),
+    // ...mapActions(['increment', 'increase']),
+    // you can change the key name of an action by, it is also the same way with mapGetters
+    ...mapActions({
+      inc: 'increment',
+      increase: 'increase'
+    }),
     addOne() {
       // this.$store.state.counter++;
       // commit why call a mutation's method named 'increment'
