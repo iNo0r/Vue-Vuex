@@ -1,6 +1,8 @@
 <template>
   <h2>{{ counter }}</h2>
   <h3>{{ finalCounter }}</h3>
+  <br />
+  <h4>{{ $store.getters.normalizedCounter }}</h4>
 </template>
 
 <script>
