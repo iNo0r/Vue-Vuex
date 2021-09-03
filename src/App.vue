@@ -3,7 +3,7 @@
     <my-counter></my-counter>
     <button @click="increment">add one</button>
     <!-- //ading payload to an action -->
-    <button @click="increase({value:30})">add 10</button>
+    <button @click="increase({ value: 30 })">add 10</button>
   </base-container>
 </template>
 
