@@ -57,6 +57,9 @@ const store = createStore({
       context.commit('increment');
     },
     //making an asynchronous example
+    // context = similar to this.$store
+    // context has commit,dispatch,state and getters
+    // you should not mutate a state from actions always use
     increase(context, payload) {
       setTimeout(function() {
         context.commit('increase', payload);
