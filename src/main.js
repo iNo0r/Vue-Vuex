@@ -39,6 +39,29 @@ const store = createStore({
         return finalCounter;
       }
     }
+  },
+  //   mutations is responsible to effect the state, it is not allowed to have an asynchronous
+  //  functions, only synchronous functions .
+  // component should triggers actions, actions will handle the asychronous part,
+  //  and then will commit a mutation.
+  // it is a good practice to use actions instead of mutations
+  // to make sure we never put asynhronous code accedintly into mutations.
+  actions: {
+    //we can use the same name as a mutations
+    // increase(context) {
+    // context help is to reach mutations
+    //   we can pass a payload too
+    //   context.commit("increase",payload);
+    // }
+    increment(context) {
+      context.commit('increment');
+    },
+    //making an asynchronous example
+    increase(context, payload) {
+      setTimeout(function() {
+        context.commit('increase', payload);
+      }, 2000);
+    }
   }
 });
 
