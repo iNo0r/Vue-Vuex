@@ -1,16 +1,23 @@
 <template>
   <base-container title="Vuex">
-  <!-- simple way to reach out our state mangment "store" -->
-    <h3>{{ $store.state.counter }}</h3>
+    <my-counter></my-counter>
+    <button @click="addOne">add one</button>
   </base-container>
 </template>
 
 <script>
 import BaseContainer from './components/BaseContainer.vue';
+import MyCounter from './components/MyCounter.vue';
 
 export default {
   components: {
-    BaseContainer
+    BaseContainer,
+    MyCounter
+  },
+  methods: {
+    addOne() {
+      this.$store.state.counter++;
+    }
   }
 };
 </script>
