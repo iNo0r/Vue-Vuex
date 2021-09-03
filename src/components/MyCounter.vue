@@ -6,15 +6,18 @@
 </template>
 
 <script>
+// mapGetters is a shorthand helps to minimize code and access getters easily
+import { mapGetters } from 'vuex';
 export default {
   computed: {
+    ...mapGetters(['finalCounter']),
     counter() {
       return this.$store.state.counter;
-    },
-    finalCounter() {
-      // it is called without the ()
-      return this.$store.getters.finalCounter;
     }
+    // finalCounter() {
+    //   // it is called without the ()
+    //   return this.$store.getters.finalCounter;
+    // }
   }
 };
 </script>
