@@ -20,6 +20,15 @@ const store = createStore({
     increase(state, payload) {
       state.counter = state.counter + payload.value;
     }
+  },
+  //   getters are similar to computed
+  getters: {
+    // state : to reach state obvously, getters: to reach other getters
+    //   in case of the value of this getter depending on oth getters
+    //   finalCounter(state,getters){
+    finalCounter(state) {
+      return state.counter * 2;
+    }
   }
 });
 
