@@ -16,7 +16,9 @@ export default {
   },
   methods: {
     addOne() {
-      this.$store.state.counter++;
+      // this.$store.state.counter++;
+      // commit why call a mutation's method named 'increment'
+      this.$store.commit('increment');
     }
   }
 };
