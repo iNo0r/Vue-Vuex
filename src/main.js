@@ -10,6 +10,10 @@ const counterMoudule = {
     };
   },
   mutations: {
+    // global store's state is not accessable in modules
+    // hence can't mutate the globl state or reach out to state/getters
+    //unless we add root state, and root getters
+    testFunc(state, getters, rootState, rootGetters) {},
     increment(state) {
       state.counter = state.counter + 1;
     },
