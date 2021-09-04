@@ -4,6 +4,10 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 
 const counterMoudule = {
+  // the reason of namespacing in modules is to avoid name clashing
+  // when assigning true to namespaced, the whole module kind of deattched from
+  // the store
+  namespaced: true,
   state() {
     return {
       counter: 0
@@ -13,7 +17,7 @@ const counterMoudule = {
     // global store's state is not accessable in modules
     // hence can't mutate the globl state or reach out to state/getters
     //unless we add root state, and root getters
-    testFunc(state, getters, rootState, rootGetters) {},
+    // testFunc(state, getters, rootState, rootGetters) {},
     increment(state) {
       state.counter = state.counter + 1;
     },
@@ -52,6 +56,7 @@ const store = createStore({
   //modules is property allow us to outsource code
   modules: {
     // name is optional
+    // the name space of the module is below
     numbersRelated: counterMoudule
   },
   // state is equal to data

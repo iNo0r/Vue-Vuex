@@ -1,8 +1,8 @@
 <template>
-  <h2>{{ counter }}</h2>
-  <h3>{{ finalCounter }}</h3>
+  <h2>noramlized counter {{ normalizedCounter }}</h2>
+  <h3>final counter : {{ finalCounter }}</h3>
   <br />
-  <h4>{{ $store.getters.normalizedCounter }}</h4>
+  <!-- <h4>{{ $store.getters.normalizedCounter }}</h4> -->
 </template>
 
 <script>
@@ -10,9 +10,16 @@
 import { mapGetters } from 'vuex';
 export default {
   computed: {
-    ...mapGetters(['finalCounter']),
-    counter() {
-      return this.$store.state.counter;
+    // the syntax below because of the name spacing
+    //  ...mapGetters(['finalCounter']),
+    // will turn into this
+    ...mapGetters('numbersRelated', ['finalCounter']),
+    normalizedCounter() {
+      // return this.$store.state.counter;
+      // this one below with namespaced
+      //   return this.$store.getters.normalizedCounter;
+      // will turn into this
+      return this.$store.getters['numbersRelated/normalizedCounter'];
     }
     // finalCounter() {
     //   // it is called without the ()

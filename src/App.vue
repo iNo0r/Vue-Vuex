@@ -31,7 +31,8 @@ export default {
     // now we can dispatch actions like we are calling a method's function
     // ...mapActions(['increment', 'increase']),
     // you can change the key name of an action by, it is also the same way with mapGetters
-    ...mapActions({
+    // actions will change into this too
+    ...mapActions('numbersRelated', {
       inc: 'increment',
       increase: 'increase'
     }),
@@ -44,8 +45,9 @@ export default {
     addMore() {
       // this.$store.commit('increase',{value:10})
       // an alternative way of commiting mutation, both work fine
+      // and this one will turn into this
       // this.$store.commit({
-      //   type: 'increase',
+      //   type: 'numbersRealted/increase',
       //   value: 10
       // });
       // also actions can be dispatched in both ways
